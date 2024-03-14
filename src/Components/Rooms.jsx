@@ -3,13 +3,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Filter from "./Filter";
+var count = 0;
 function Rooms() {
   const router = useRouter()
   console.log(router)
-  const message = router.query.y;
-  console.log(message)
   const [user, setUser] = useState("");
-  
   const [loading, setLoading] = useState(false);
   const [wifi, setWifi] = useState(false);
   const [washing, setWashing] = useState(false);
@@ -24,32 +22,11 @@ function Rooms() {
   const [location1, setLocation1] = useState("");
   const [location2, setLocation2] = useState("");
 
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
+  useEffect(() => {
+    setUser(router.query.username || "");
+  }, [router.query.username]);
 
   useEffect(() => {
-    setUser(message)
-    console.log("Hello");
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -100,6 +77,7 @@ function Rooms() {
   
   return (
     <div>
+      {count}
       <div className="text-green-600  font-bold text-[1.8rem] flex justify-center">Welcome {user}</div>
       <div className="flex pt-[1rem] justify-center space-x-8 items-center">
         

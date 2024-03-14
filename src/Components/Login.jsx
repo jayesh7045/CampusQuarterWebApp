@@ -4,6 +4,8 @@ import axios from "axios";
 import { useRouter } from "next/router";
 function Login({hasAccount, createAccount}) {
   const [username1, setUsername1] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const router = useRouter();
   const [loginValues, setLoginValues] = useState({email : "", password: ""});
   const handleChange = (e)=>{
@@ -11,25 +13,39 @@ function Login({hasAccount, createAccount}) {
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setLoading(true);
+    setError('');
+  
     try {
-      const res = await axios.post('http://localhost:8080/api/users/login', loginValues,  {
+      const res = await axios.post('http://localhost:8080/api/users/login', loginValues, {
         headers: {
           "Content-Type": "application/json",
         },
-      }); 
-      console.log("Jayesh");
-      console.log(res.data.datavalue.username);
-      const y = res.data.datavalue.username
-      setUsername1(y)
-      console.log("Wadhwani")
-      router.push({pathname : "/rooms", query : {y}})
+      });
+      console.log('y');
+      // console.log(res);
+      console.log('y');
+      const userData = res.data.datavalue;
+      const  username  = res.data.datavalue.username;
+      setUsername1(username);
+      console.log('y');
+      // console.log(res);
+      console.log(username)
+
+      console.log('y');
+  
+      router.push({ pathname: "/rooms", query: { username } });
     } catch (error) {
-      console.error('Error during registration:', error);
-      
+      if (error.response) {
+        setError(error.response.data.message);
+      } else {
+        setError('An error occurred while processing your request. Please try again later.');
+      }
+    } finally {
+      setLoading(false);
     }
-    console.log("response");
   };
+  
   
 
   return (
