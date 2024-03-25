@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/router";
-function Signup({ hasAccount, createAccount }) {
+function Signup({ hasAccount, createAccount, value}) {
   const router = useRouter();
   console.log(router);
   const [RegistrationValue, setValue] = useState({
@@ -149,6 +149,7 @@ function Signup({ hasAccount, createAccount }) {
                     <button
                       onClick={() => {
                         createAccount(true);
+                        router.push("/login")
                       }}
                     >
                       Login here

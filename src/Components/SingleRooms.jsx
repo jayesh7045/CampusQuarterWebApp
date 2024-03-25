@@ -14,7 +14,7 @@ function RoomDetails() {
   const { roomid } = router.query;
 
   useEffect(() => {
-    window.addEventListener("load", function(event) {
+    window.addEventListener("load", function (event) {
       document.querySelector('[data-dropdown-toggle="dropdown"]').click();
     });
     const fetchRoomDetails = async () => {
@@ -60,10 +60,6 @@ function RoomDetails() {
                   {roomDetails.hostel_name}
                 </h1>
 
-
-
-
-                
                 <div class="flex mb-4">
                   <span class="flex items-center">
                     <svg
@@ -162,16 +158,15 @@ function RoomDetails() {
                     </a>
                   </span>
                   <div className="flex pl-[3rem]">
-                    <img src="Images/mapicon.png" className="w-[2rem]" alt="" />
+                    <a href={roomDetails.view}>
+                      <img
+                        src="Images/mapicon.png"
+                        className="w-[2rem]"
+                        alt=""
+                      />
+                    </a>
+                  </div>
                 </div>
-                </div>
-               
-      
-
-
-
-
-
 
                 <div>
                   <section class="text-gray-600 body-font">

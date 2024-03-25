@@ -1,6 +1,16 @@
 import React from "react";
 import Button from "@/pages/Layouts/Button";
+import { useRouter } from "next/router";
 function HomePage() {
+  const router = useRouter();
+  const handleClickEvent=()=>{
+    const temp1 = JSON.parse(localStorage.getItem('username'))
+    console.log(temp1);
+    
+    const username = temp1.username
+    console.log(username);
+    router.push({pathname : '/rooms', query : {username}})
+  }
   return (
     <div>
       <div className="flex flex-row justify-between w-full ">
@@ -10,9 +20,9 @@ function HomePage() {
               Welcome to the <span className="text-blue-600">PCCOER</span>{" "}
               Campus Quarters
               <div className="flex justify-center pr-[12rem] pt-[1rem] ">
-                <a href="/rooms"><button class="bg-blue-500 text-[1.5rem] flex justify-center w-[10rem] hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+               <button onClick = {handleClickEvent} class="bg-blue-500 text-[1.5rem] flex justify-center w-[10rem] hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
                   Explore
-                </button></a>
+                </button>
               </div>
             </div>
           </div>

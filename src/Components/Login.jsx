@@ -22,18 +22,18 @@ function Login({hasAccount, createAccount}) {
           "Content-Type": "application/json",
         },
       });
-      console.log('y');
+     
       // console.log(res);
-      console.log('y');
+      
       const userData = res.data.datavalue;
       const  username  = res.data.datavalue.username;
       setUsername1(username);
-      console.log('y');
+      
       // console.log(res);
       console.log(username)
-
-      console.log('y');
-  
+      const item = {username : `${username}`}
+      const itemtostore= JSON.stringify(item);
+      localStorage.setItem('username', itemtostore)
       router.push({ pathname: "/rooms", query: { username } });
     } catch (error) {
       if (error.response) {
