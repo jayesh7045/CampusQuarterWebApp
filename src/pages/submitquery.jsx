@@ -1,15 +1,15 @@
 import React from 'react'
-import Contact from '@/Components/Contact'
+import SubmitQuery from '@/Components/SubmitQuery.jsx'
 import Header from '@/Components/Header'
 import Footer from '@/Components/Footer'
-function contact() {
+function submitquery() {
   return (
     <div>
-      <Header></Header>
-      <Contact></Contact>
+       <Header></Header>
+      <SubmitQuery/>
       <Footer></Footer>
     </div>
   )
 }
 
-export default contact
+export default submitquery

@@ -1,0 +1,3 @@
+body.modal-open .content-wrapper {
+    filter: blur(5px);
+}

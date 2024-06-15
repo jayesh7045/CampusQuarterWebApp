@@ -1,15 +1,11 @@
-// pages/[roomId].js
-
 import { useRouter } from "next/router";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import DemoCarousel from "./Slider";
-import LocationForm from "./LogiLati";
 function RoomDetails() {
   const [roomDetails, setRoomDetails] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const router = useRouter();
   const { roomid } = router.query;
 

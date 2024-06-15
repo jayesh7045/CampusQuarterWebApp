@@ -1,11 +1,14 @@
 import React from "react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 function Header() {
+  
   const router = useRouter();
   const handleLogout=()=>{
     const data = localStorage.removeItem('username');
     router.push('/');
+ 
   }
   return (
     <div>
@@ -24,7 +27,7 @@ function Header() {
             </a>
             <div class="flex items-center lg:order-2">
               
-               <button onClick = {handleLogout}>Logout</button>
+              <button onClick = {handleLogout}>Logout</button>
               
               <button
                 data-collapse-toggle="mobile-menu-2"
@@ -76,7 +79,7 @@ function Header() {
                 </li>
                 <li>
                   <a
-                    href="/Company"
+                    href="/company"
                     class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                   >
                     Company
@@ -84,7 +87,7 @@ function Header() {
                 </li>
                 <li>
                   <a
-                    href="/Food Junction"
+                    href="http://localhost:3001/"
                     class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                   >
                     Food Junction
@@ -92,10 +95,10 @@ function Header() {
                 </li>
                 <li>
                   <a
-                    href="/features"
+                    href="/pricing"
                     class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"
                   >
-                    Features
+                    Pricing
                   </a>
                 </li>
                 <li>

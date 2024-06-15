@@ -4,6 +4,7 @@ import cors from "cors"
 import express from "express"
 import userRoute from "./routess/UsersRoute.js"
 import roomRoute from "./routess/roomsRoute.js"
+import OwnerRoute from "./routess/ownerRoutes.js"
 import { ConnectDB } from "./DB/db.js";
 dotenv.config();
 
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json())
 app.use('/api/Rooms', roomRoute);
 app.use('/api/users', userRoute);
+app.use('/api/owner', OwnerRoute);
 
 
 app.get('/', (req, res)=>{

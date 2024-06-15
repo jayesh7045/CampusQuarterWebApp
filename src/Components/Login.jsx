@@ -11,6 +11,7 @@ function Login({hasAccount, createAccount}) {
   const handleChange = (e)=>{
     setLoginValues({...loginValues, [e.target.name] :e.target.value})
   }
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -22,18 +23,14 @@ function Login({hasAccount, createAccount}) {
           "Content-Type": "application/json",
         },
       });
-     
-      // console.log(res);
-      
       const userData = res.data.datavalue;
       const  username  = res.data.datavalue.username;
       setUsername1(username);
-      
-      // console.log(res);
       console.log(username)
       const item = {username : `${username}`}
       const itemtostore= JSON.stringify(item);
       localStorage.setItem('username', itemtostore)
+      console.log("JAyesh")
       router.push({ pathname: "/rooms", query: { username } });
     } catch (error) {
       if (error.response) {

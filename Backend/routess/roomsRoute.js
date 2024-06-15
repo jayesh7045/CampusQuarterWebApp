@@ -5,7 +5,6 @@ import Room from "../Modelss/room.js"
 const app = express();
 app.use(cors());
 router.get('/getallrooms', async(req, res)=>{
-
     try{
         const room = await Room.find({})
         res.send(room)
